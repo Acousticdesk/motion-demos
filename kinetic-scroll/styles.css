@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 @import url("https://unpkg.com/normalize.css") layer(normalize);
-@layer normalize, base, components, utilities, text-effect;
+@layer normalize, base, components, utilities, text-effect, snap;
 
 @layer base {
   html,
@@ -8,6 +8,9 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
+
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth; /* optional */
   }
 
   body {
@@ -61,18 +64,28 @@
     font-weight: 800;
   }
 
+  .hero-description {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 16px;
+  }
+
   .list-text {
     font-size: 6rem;
     font-weight: 600;
     position: sticky;
-    top: 0;
-    align-self: flex-start;
+    top: calc(50% - 0.5lh);
+    align-self: flex-start; /* this is important to make sticky work in a flex container */
   }
 
   .list {
     font-size: 6rem;
     font-weight: 600;
     list-style-type: none;
+  }
+
+  .list li {
+    line-height: 1.25;
   }
 
   .list-container {
@@ -125,5 +138,17 @@
         opacity: var(--end-opacity, 0.2);
       }
     }
+  }
+}
+
+@layer snap {
+  html,
+  body {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  .list li {
+    scroll-snap-align: center;
   }
 }
