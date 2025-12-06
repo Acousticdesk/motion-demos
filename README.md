@@ -4,6 +4,12 @@ A collection of modern web animation demos by Andrii Kycha.
 
 These experiments are inspired by independent developers exploring new visual patterns and pushing the aesthetics of the Web.
 
+## Latest Work
+
+[Kinetic Scroll](./kinetic-scroll)
+
+![Kinetic Scroll Preview](./kinetic-scroll/docs/preview.gif)
+
 ## Navigating the repo
 
 Each demo is self-contained in its own directory.  
