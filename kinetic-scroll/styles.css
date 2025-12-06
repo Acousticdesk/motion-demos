@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 @import url("https://unpkg.com/normalize.css") layer(normalize);
-@layer normalize, base, components, utilities, text-effect, snap;
+@layer normalize, base, components, utilities, text-effect, snap, responsive;
 
 @layer base {
   html,
@@ -11,6 +11,10 @@
 
     scroll-snap-type: y proximity;
     scroll-behavior: smooth; /* optional */
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   body {
@@ -48,7 +52,9 @@
   }
 
   .container {
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 16px;
     margin: 0 auto;
   }
 
@@ -59,29 +65,30 @@
   }
 
   .hero-text {
-    /* todo akicha: this should use fluid typography pattern instead */
-    font-size: 8rem;
+    font-size: clamp(4rem, 8vw, 8rem);
     font-weight: 800;
   }
 
   .hero-description {
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 2rem);
     font-weight: 400;
     margin-top: 16px;
   }
 
   .list-text {
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 6vw, 6rem);
     font-weight: 600;
     position: sticky;
     top: calc(50% - 0.5lh);
     align-self: flex-start; /* this is important to make sticky work in a flex container */
+    min-width: max-content;
   }
 
   .list {
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 6vw, 6rem);
     font-weight: 600;
     list-style-type: none;
+    padding: 0;
   }
 
   .list li {
@@ -150,5 +157,13 @@
 
   .list li {
     scroll-snap-align: center;
+  }
+}
+
+@layer responsive {
+  @media (max-width: 600px) {
+    .list-container {
+      column-gap: 12px;
+    }
   }
 }
