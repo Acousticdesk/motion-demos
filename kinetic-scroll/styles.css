@@ -80,10 +80,6 @@
     grid-template-columns: auto 1fr;
     column-gap: 48px;
   }
-
-  .list li:not(:last-of-type) {
-    color: oklch(65% 0.3 calc(var(--i) * var(--step)));
-  }
 }
 
 @layer text-effect {
@@ -91,5 +87,43 @@
     --count: 15;
     --end: 360;
     --step: calc(var(--end) / var(--count));
+  }
+
+  .list li:not(:last-of-type) {
+    color: oklch(65% 0.3 calc(var(--i) * var(--step)));
+  }
+
+  @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+    .list li:first-of-type {
+      --start-opacity: 1;
+    }
+
+    .list li:last-of-type {
+      --end-opacity: 1;
+    }
+
+    .list li {
+      opacity: 0.2;
+      animation-name: brighten;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+
+      animation-timeline: view();
+      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+    }
+
+    @keyframes brighten {
+      0% {
+        opacity: var(--start-opacity, 0.2);
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: var(--end-opacity, 0.2);
+      }
+    }
   }
 }
