@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Like Button by Andrii Kycha</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="like" class="like-button">
+      <i data-lucide="heart" class="like-icon"></i>
+      <span class="like-ripple"></span>
+    </button>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      lucide.createIcons({
+        attrs: {
+          width: 48,
+          height: 48,
+        },
+      });
+    </script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
