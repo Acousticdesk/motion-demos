@@ -40,6 +40,18 @@
     animation-delay: 0.3s;
   }
 
+  @keyframes like {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   .like-ripple {
     display: block;
     border-radius: 100%;
@@ -55,18 +67,6 @@
     animation: ripple 0.3s ease forwards;
   }
 
-  @keyframes like {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.4);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
   @keyframes ripple {
     0% {
       transform: scale(0);
@@ -78,6 +78,27 @@
     100% {
       transform: scale(1);
       opacity: 1;
+    }
+  }
+
+  .like-particle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: oklch(0.65 0.24 var(--hue, 22));
+    border-radius: 100%;
+    animation: particle 1s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes particle {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--tx), var(--ty)) scale(0);
+      opacity: 0;
     }
   }
 }
