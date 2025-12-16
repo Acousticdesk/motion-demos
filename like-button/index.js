@@ -1,11 +1,12 @@
-// todo akicha: these should be configurable for the demo
-const NUM_PARTICLES = 50;
-const LIKE_BTN_SIZE = 104;
-const RIPPLE_SIZE = 104;
+const NUM_PARTICLES = 25;
+const LIKE_BTN_SIZE = 48;
+const RIPPLE_SIZE = 48;
 const PARTICLE_ANIMATION_DURATION = 500;
 const TWINKLE_ANIMATION_DURATION = 300;
 const MAX_PARTICLE_ANIMATION_DEVIATION = 250;
 const MAX_TWINKLE_ANIMATION_DEVIATION = 100;
+const OVERALL_ANIMATION_DURATION = 3000;
+const MAX_PARTICLE_POSITION_DEVIATION = 5;
 
 function main() {
   const likeBtn = document.getElementById("like");
@@ -23,7 +24,10 @@ function main() {
       const radius = RIPPLE_SIZE / 2;
 
       const angle = Math.random() * 2 * Math.PI;
-      const deviation = (Math.random() > 0.5 ? 1 : -1) * 10 * Math.random();
+      const deviation =
+        (Math.random() > 0.5 ? 1 : -1) *
+        MAX_PARTICLE_POSITION_DEVIATION *
+        Math.random();
       const tx = (radius + deviation) * Math.cos(angle);
       const ty = (radius + deviation) * Math.sin(angle);
 
@@ -57,9 +61,8 @@ function main() {
       particles.push(particle);
     }
 
-    // todo akicha: cover an edge case where user clicks multiple times quickly
     setTimeout(() => {
-      // particles.forEach((particle) => particle.remove());
+      particles.forEach((particle) => particle.remove());
     }, OVERALL_ANIMATION_DURATION);
   });
 }

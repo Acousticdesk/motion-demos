@@ -6,6 +6,10 @@ These experiments are inspired by independent developers exploring new visual pa
 
 ## Latest Work
 
+[CSS Like Button Animation (SVG Ripple + Particles)](./like-button)
+
+![Like Button Animation Preview](./like-button/docs/preview.gif)
+
 [Kinetic Scroll](./kinetic-scroll)
 
 ![Kinetic Scroll Preview](./kinetic-scroll/docs/preview.gif)
@@ -17,4 +21,5 @@ Open a folder to see the demo description, implementation details, and previews.
 
 ## Index
 
+- [CSS Like Button Animation (SVG Ripple + Particles)](./like-button)
 - [Kinetic Scroll](./kinetic-scroll)

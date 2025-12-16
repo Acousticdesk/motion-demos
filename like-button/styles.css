@@ -23,8 +23,8 @@
   .like-button {
     display: flex;
     position: relative;
-    width: 104px;
-    height: 104px;
+    width: 48px;
+    height: 48px;
     align-items: center;
     justify-content: center;
   }
@@ -35,56 +35,12 @@
 
   .like-button.liked .like-icon {
     color: oklch(0.65 0.24 22);
-    transform: scale(0);
-    animation: like 0.3s ease forwards;
-    animation-delay: 0.3s;
-  }
-
-  @keyframes like {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.4);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  .like-ripple {
-    display: block;
-    border-radius: 100%;
-    width: 100%;
-    height: 100%;
-    background-color: oklch(0.75 0.12 22 / 0.35);
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-  }
-
-  .like-button.liked .like-ripple {
-    animation: ripple 0.3s ease forwards;
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: scale(0);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
   }
 
   .like-particle {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 8px;
+    height: 8px;
     background-color: oklch(0.65 0.24 var(--hue, 22) / 0.6);
     border-radius: 100%;
     animation: particle var(--animation-duration, 500ms) ease-in-out forwards,
