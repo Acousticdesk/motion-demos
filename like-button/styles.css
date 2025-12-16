@@ -1,5 +1,5 @@
 @import url("https://unpkg.com/normalize.css") layer(normalize);
-@layer normalize, base, components;
+@layer normalize, base, components, svg;
 
 @layer base {
   html,
@@ -119,6 +119,32 @@
   @keyframes fade-out {
     to {
       opacity: 0;
+    }
+  }
+}
+
+@layer svg {
+  button.liked svg circle {
+    animation: ripple 500ms ease;
+    fill: oklch(0.75 0 22 / 0.35);
+    r: 24;
+  }
+
+  @keyframes ripple {
+    0% {
+      opacity: 0;
+      stroke-width: 12;
+      fill: oklch(0.75 0.12 22 / 0.35);
+      stroke: oklch(0.75 0.12 22 / 0.35);
+      r: 0;
+    }
+
+    100% {
+      opacity: 1;
+      stroke-width: 1;
+      fill: oklch(0.75 0.12 22 / 0.35);
+      stroke: oklch(0.75 1 22 / 0.35);
+      r: 23;
     }
   }
 }
